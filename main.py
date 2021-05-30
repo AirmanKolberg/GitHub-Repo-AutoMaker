@@ -53,13 +53,15 @@ def setup_project_directory(project_name):
     bash_command(f'git remote add origin https://github.com/AirmanKolberg/{project_name}.git')
     bash_command('git push -u origin main')
 
-    # Open project in Visual Studio Code
-    bash_command(f"open -a 'Visual Studio Code' main.py")
-
 
 if __name__ == '__main__':
     clear_screen()
-
+    
+    # Name the repo
     project_name = input('Repository name: ')
+    
     create_the_repo(project_name)
     setup_project_directory(project_name)
+    
+    # Open project in Visual Studio Code
+    bash_command(f"open -a 'Visual Studio Code' main.py")
