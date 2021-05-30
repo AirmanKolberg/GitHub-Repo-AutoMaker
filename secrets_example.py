@@ -12,3 +12,5 @@ readme_body = """# This is My Title
 Thank you for reading my README.md file.  Goodbye.
 ---
 Thank you for reading."""
+
+base_location = '/Users/eddie.vanhalen/'        # As an example
