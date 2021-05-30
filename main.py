@@ -1,5 +1,5 @@
 import requests
-from secrets import github_token, project_location, readme_body
+from secrets import github_token, project_location, readme_body, base_location
 from system_commands import *
 from pprint import pprint
 
@@ -56,12 +56,10 @@ def setup_project_directory(project_name):
 
 if __name__ == '__main__':
     clear_screen()
-    
-    # Name the repo
+
     project_name = input('Repository name: ')
-    
     create_the_repo(project_name)
     setup_project_directory(project_name)
-    
-    # Open project in Visual Studio Code
-    bash_command(f"open -a 'Visual Studio Code' main.py")
+
+    # Open project in PyCharm
+    bash_command(f"open -a 'PyCharm CE' {base_location}{project_location}{project_name}")
