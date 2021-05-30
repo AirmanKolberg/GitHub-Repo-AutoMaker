@@ -28,30 +28,24 @@ def create_the_repo(project_name):
 
 
 def setup_project_directory(project_name):
-    # Navigate to newly created project directory
-    bash_command('cd')
-    bash_command(f'cd {project_location} && mkdir {project_name}')
-    bash_command(f'cd {project_name}')
+    bash_commands = ['cd',
+                     f'cd {project_location} && mkdir {project_name}',
+                     f'cd {project_name}',
+                     'touch secrets.py',
+                     'touch required.txt',
+                     'touch test.py',
+                     """echo "if '__name__' == '__main__':\n" >> main.py""",
+                     f"echo '# {project_name}{readme_body}' >> README.md",
+                     "echo 'secrets.py\ntest.py' >> .gitignore",
+                     'git init',
+                     'git add README.md',
+                     "git commit -m 'first commit'",
+                     'git branch -M main',
+                     f'git remote add origin https://github.com/AirmanKolberg/{project_name}.git',
+                     'git push -u origin main']
 
-    # Create startup files
-    bash_command('touch secrets.py')
-    bash_command('touch required.txt')
-    bash_command('touch test.py')
-
-    # Create main and readme files
-    bash_command("""echo "if '__name__' == '__main__':\n" >> main.py""")
-    bash_command(f"echo '# {project_name}{readme_body}' >> README.md")
-
-    # Add private files to the .gitignore
-    bash_command("echo 'secrets.py\ntest.py' >> .gitignore")
-
-    # Make initial commit
-    bash_command('git init')
-    bash_command('git add README.md')
-    bash_command("git commit -m 'first commit'")
-    bash_command('git branch -M main')
-    bash_command(f'git remote add origin https://github.com/AirmanKolberg/{project_name}.git')
-    bash_command('git push -u origin main')
+    for command in bash_commands:
+        bash_command(command)
 
 
 if __name__ == '__main__':
