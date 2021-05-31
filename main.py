@@ -2,6 +2,7 @@ import requests
 from secrets import github_token, project_location, readme_body, base_location
 from system_commands import *
 from pprint import pprint
+from time import sleep
 
 api_url = 'https://api.github.com'
 
@@ -28,6 +29,9 @@ def create_the_repo(project_name):
 
 
 def setup_project_directory(project_name):
+
+    # These commands will be executed in succession
+    # Currently 3 sec to execute all commands @ 0.2sec intervals
     bash_commands = ['cd',
                      f'cd {project_location} && mkdir {project_name}',
                      f'cd {project_name}',
@@ -46,14 +50,15 @@ def setup_project_directory(project_name):
 
     for command in bash_commands:
         bash_command(command)
+        sleep(0.2)
 
 
 if __name__ == '__main__':
     clear_screen()
 
     project_name = input('Repository name: ')
-    create_the_repo(project_name)
     setup_project_directory(project_name)
+    create_the_repo(project_name)
 
-    # Open project in PyCharm
-    bash_command(f"open -a 'PyCharm CE' {base_location}{project_location}{project_name}")
+    # Open project in VS Code
+    bash_command(f"open -a 'Visual Studio Code' {base_location}{project_location}{project_name}/)")
