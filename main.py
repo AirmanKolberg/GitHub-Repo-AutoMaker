@@ -47,9 +47,15 @@ def link_to_ide(project_name, custom_commit):
 
     # Write custom commit, if applicable
     if custom_commit:
+
+        # Click the text field
         pag.click(x=659, y=603)
+
+        # Delete the default commit
         pag.hotkey('command', 'a')
         pag.press('backspace')
+
+        # Insert the custom commit
         pag.write(custom_commit, interval=0.08)
 
     # Add initial commit
