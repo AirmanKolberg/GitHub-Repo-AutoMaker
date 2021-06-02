@@ -5,10 +5,6 @@ import pyautogui as pag
 
 def link_to_ide(project_name, custom_commit):
 
-    def debug_each_step(last):
-        input(last)
-        sleep(3)
-
     # Open the IDE/text editor of your choice
     bash_command("open -a 'PyCharm CE'")
 
@@ -42,16 +38,12 @@ def link_to_ide(project_name, custom_commit):
     sleep(3)
 
     # The "Share" button
-    pag.click(x=862, y=542)
+    pag.click(x=850, y=542)
     sleep(10)
 
-    debug_each_step('x=862, y=542')
-
     # Unselect everything
-    pag.click(x=505, y=246)
+    pag.click(x=530, y=247)
     sleep(1)
-
-    debug_each_step('x=505, y=246')
 
     # Write custom commit, if applicable
     if custom_commit:
@@ -62,10 +54,10 @@ def link_to_ide(project_name, custom_commit):
 
     # Add initial commit
     pag.click(x=923, y=731)
-    sleep(5)
+    sleep(3)
 
-    debug_each_step('x=923, y=731')
-
+    # Close the pop-up with the "Add" button
+    pag.click(x=892, y=512)
 
 
 if __name__ == '__main__':
