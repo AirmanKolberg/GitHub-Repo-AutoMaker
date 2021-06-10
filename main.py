@@ -56,7 +56,7 @@ def link_to_ide(repo_link, project_name):
             pag.press('return')
             sleep(0.1)
 
-    execute_custom_terminal_commands()
+    execute_custom_terminal_commands(custom_commands)
     
 
 def create_github_repository(project_name):
