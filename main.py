@@ -2,7 +2,7 @@ from system_commands import *
 from time import sleep
 import pyautogui as pag
 from github import Github
-from secrets import github_token, github_username
+from secrets import github_token, github_username, custom_commands
 
 
 def link_to_ide(repo_link, project_name):
@@ -45,6 +45,18 @@ def link_to_ide(repo_link, project_name):
     pag.write(f'cd {project_name}', interval=0.08)
     sleep(0.1)
     pag.press('return')
+    sleep(0.1)
+
+    # Iterates through all custom commands to run in the Terminal
+    def execute_custom_terminal_commands(commands):
+
+        for command in commands:
+            pag.write(command, interval=0.08)
+            sleep(0.1)
+            pag.press('return')
+            sleep(0.1)
+
+    execute_custom_terminal_commands()
     
 
 def create_github_repository(project_name):
