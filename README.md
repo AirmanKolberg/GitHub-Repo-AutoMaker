@@ -2,7 +2,7 @@
 
 Just a simple script written specifically for the 15" 2015 MacBook Pro, but can be configured for any screen (using the pointerPixels.py application).  This script will open a new project in PyCharm and link it up to your GitHub account for you, nice and simple.
 
-A lot of PyCharm is GUI in nature, so this utilises PyAutoGUI quite extensively.  Please take the time to configure the application to your screen, unless of course you also happen to be on one of those 2015 15" Retina MacBook Pros.
+A lot of PyCharm is GUI in nature, so this utilises PyAutoGUI quite extensively.  Please take the time to configure the application to your screen, unless of course you also happen to be on one of those 2015 15" Retina MacBook Pros.  If not, the (x, y) PyAutoGUI coordinates are not difficult to ammend.
 
 ---
 
