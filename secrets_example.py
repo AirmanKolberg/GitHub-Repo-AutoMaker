@@ -1,13 +1,5 @@
-github_token = 'put your token string here'
-github_username = 'and your username as a string here'
+github_token = 'Your info here'
+github_username = 'Your info here, as well'
 
-"""
-This next variable should be a list containing all of the
-normal Shell commands you'd run upon creating your project,
-the following is a quick, simple example.
-"""
-
-custom_commands = [f"""echo "{readme_body}" >> README.md""",
-                   "touch main.py", "touch secrets.py",
-                   "echo 'secrets.py' >> .gitignore",
-                   "git status"]
+# Here is an example
+project_base_location = '/Users/mike/MyNiftyCodingProjects'

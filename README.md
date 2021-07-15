@@ -1,4 +1,23 @@
-# GitHub Repository Helper!
+# GitHub Repository Helper!  (Visual Studio Code Edition)
+
+This is the automatic GitHub repository maker that I often use, and I'm just here to share it with you if anyone wants a quick, and simple solution to automating the process of creating new
+repositories.  Though there is something fun about just doing it yourself... either way!  Here's some code, enjoy it if you wish!
+
+## How it Works
+
+Rename `secrets_example.py` to `secrets.py` with a simple `mv secrets_example.py secrets.py` within the project directory, and within that file, you will need to insert your information for
+the four variables:
+
+- `github_token`
+- `github_username`
+- `project_base_location`
+- `extra_files_location`
+
+One that is done, simply run `python3 app.py` to create a new repository and open the project in Visual Studio Code.  You could, of course, go one step further and create a global Shell script
+that runs `python3 fileLocation/app.py` so that you could create a repo no matter where in your computer you are (if you're like me and still access the computer via the Terminal emulator the
+vast majority of the time)!  This bot will also setup another bot within your new repo's project directory to help automate the task of committing/pushing updates.  Enjoy.
+
+## The PyCharm GUI-Version for the 2015 15" MacBook Pro (specifically)
 
 Just a simple script written specifically for the 15" 2015 MacBook Pro, but can be configured for any screen (using the pointerPixels.py application).  This script will open a new project in PyCharm and link it up to your GitHub account for you, nice and simple.
 
