@@ -13,6 +13,8 @@ the four variables:
 - `project_base_location`
 - `extra_files_location`
 
+Next, install all required dependencies with `pip install -r requirements.txt` (or `pip3` if that's what your machine prefers.)
+
 One that is done, simply run `python3 app.py` to create a new repository and open the project in Visual Studio Code.  You could, of course, go one step further and create a global Shell script
 that runs `python3 fileLocation/app.py` so that you could create a repo no matter where in your computer you are (if you're like me and still access the computer via the Terminal emulator the
 vast majority of the time)!  This bot will also setup another bot within your new repo's project directory to help automate the task of committing/pushing updates.  Enjoy.
