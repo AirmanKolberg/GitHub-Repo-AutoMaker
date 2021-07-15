@@ -1,6 +1,5 @@
 from system_functions import bash_command, clear_screen
 from json_tools import json_to_dict
-from secrets import project_url
 
 
 def get_file_names_to_update():
@@ -55,7 +54,7 @@ def get_file_names_to_update():
     return modified_file_names, deleted_file_names
 
 
-def add_and_commit_file(file_names, project_url):
+def add_and_commit_file(file_names):
 
     # Import the file_name:description data
     commit_data = json_to_dict('masterCommit.json')
@@ -71,7 +70,7 @@ def add_and_commit_file(file_names, project_url):
 
             bash_command(f'git add {this_file}')
             bash_command(f'git commit -m "{file_description}"')
-            bash_command(f'git push {project_url}')
+            bash_command(f'git push origin main')
 
         else:
 
@@ -87,10 +86,10 @@ def delete_file(file_names, project_url):
 
         bash_command(f'git rm {this_file}')
         bash_command('git commit -m "deleted/renamed file"')
-        bash_command(f'git push {project_url}')
+        bash_command(f'git push origin main')
 
 
-def search_for_untracked_files(project_url):
+def search_for_untracked_files():
 
     bash_command(f'git status >> untracked.txt')
 
@@ -125,7 +124,7 @@ def search_for_untracked_files(project_url):
             files_to_track.append(current_file)
         
         # Push the updates to GitHub
-        add_and_commit_file(files_to_track, project_url)
+        add_and_commit_file(files_to_track)
 
 
 if __name__ == '__main__':
@@ -136,10 +135,10 @@ if __name__ == '__main__':
 
     if files_to_update:
 
-        add_and_commit_file(files_to_update, project_url)
+        add_and_commit_file(files_to_update)
     
     if files_to_delete:
 
         delete_file(files_to_delete)
 
-    search_for_untracked_files(project_url)
+    search_for_untracked_files()

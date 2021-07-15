@@ -15,14 +15,13 @@ def determine_repo_name():
     if not repo_name:
 
         print(f'"{repo_name}" is not valid, please try again...')
-        determine_repo_name()
+        repo_url = determine_repo_name()
     
-    return repo_url, repo_name
+    return repo_url
 
 
 # This will open the project in Visual Studio Code
-def navigate_to_project_loation(repo_url, project_base_location,
-                                repo_name):
+def navigate_to_project_loation(repo_url, project_base_location):
 
     shell_commands = [f'cd {project_base_location}',
                       f'git clone {repo_url}',
@@ -34,7 +33,6 @@ def navigate_to_project_loation(repo_url, project_base_location,
                       f'cp {extra_files_location}/name_files_to_commit.py {project_base_location}/name_files_to_commit.py',
                       f'cp {extra_files_location}/system_functions.py {project_base_location}/system_functions.py',
                       f'cp {extra_files_location}/json_tools.py {project_base_location}/json_tools.py',
-                      f'echo "project_url = {repo_url}" >> secrets.py',
 
                       f'code .']
 
@@ -51,6 +49,6 @@ if __name__ == '__main__':
 
     bash_command('pwd')
 
-    repo_url, repo_name = determine_repo_name()
+    repo_url = determine_repo_name()
 
-    navigate_to_project_loation(repo_url, project_base_location, repo_name)
+    navigate_to_project_loation(repo_url, project_base_location)
