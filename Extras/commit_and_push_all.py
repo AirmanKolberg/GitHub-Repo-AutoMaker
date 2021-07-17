@@ -89,44 +89,6 @@ def delete_file(file_names, project_url):
         bash_command(f'git push origin main')
 
 
-def search_for_untracked_files():
-
-    bash_command(f'git status >> untracked.txt')
-
-    # Import the untracked list
-    untracked = open('untracked.txt', 'r')
-    untracked_line = untracked.read()
-    untracked.close()
-
-    # Ensure list is deleted to avoid overlap
-    bash_command('rm untracked.txt')
-
-    # Make untracked_line its own variable in an arrays
-    untracked_files = untracked_line.split('\n')
-    
-    # An array to be returned with the file names to be tracked
-    files_to_track = list()
-
-    if 'Untracked files:' in untracked_files:
-
-        starting_point = untracked_files.index('Untracked files:') + 2
-        tracking_files = True
-
-        for i in range(starting_point, len(untracked_files)):
-
-            current_file = untracked_files[i]
-
-            # The space indicates that the list is over
-            if current_file == '':
-                tracking_files = False
-            
-            current_file = current_file.replace('\t', '')
-            files_to_track.append(current_file)
-        
-        # Push the updates to GitHub
-        add_and_commit_file(files_to_track)
-
-
 if __name__ == '__main__':
 
     clear_screen()
@@ -140,5 +102,3 @@ if __name__ == '__main__':
     if files_to_delete:
 
         delete_file(files_to_delete)
-
-    search_for_untracked_files()
