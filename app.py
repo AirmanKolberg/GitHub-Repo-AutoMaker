@@ -13,7 +13,7 @@ def determine_repo_name():
     repo_url = create_github_repository(repo_name)
 
     # In the event that the repo cannot be created...
-    if not repo_name:``
+    if not repo_name:
 
         print(f'"{repo_name}" is not valid, please try again...')
         repo_url = determine_repo_name()
