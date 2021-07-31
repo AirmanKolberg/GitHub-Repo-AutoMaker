@@ -1,6 +1,7 @@
 from github_api import create_github_repository
 from system_functions import clear_screen, bash_command
 from secrets import project_base_location, extra_files_location
+from time import sleep
 
 
 def determine_repo_name():
@@ -12,7 +13,7 @@ def determine_repo_name():
     repo_url = create_github_repository(repo_name)
 
     # In the event that the repo cannot be created...
-    if not repo_name:
+    if not repo_name:``
 
         print(f'"{repo_name}" is not valid, please try again...')
         repo_url = determine_repo_name()
@@ -41,6 +42,7 @@ def navigate_to_project_loation(repo_url, repo_name,
     for command in shell_commands:
 
         bash_command(command)
+        sleep(1)
 
 
 if __name__ == '__main__':
